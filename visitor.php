@@ -35,7 +35,17 @@ interface Visitor
 
 class Product extends Element
 {
-    
+    private $images = array();    
+
+    public function setImages($images)
+    {
+        $this->images = $images;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
 }
 
 class ImageLoader implements Visitor
