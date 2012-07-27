@@ -41,6 +41,11 @@ class Product extends Element
 class ImageLoader implements Visitor
 {
 
+    public function visitProduct(Product $product)
+    {
+        echo "Visiting function ImageLoader::visitProduct(Product)\n";
+    }
+
     public function defaultVisit(Element $element)
     {
         // error out due to no visitor method being implemented
