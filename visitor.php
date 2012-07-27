@@ -126,3 +126,8 @@ $imgLoader = new ImageLoader();
 $product->accept($imgLoader);
 
 var_dump($product->getImages());
+
+$user = new User();
+$user->accept($imgLoader);
+
+var_dump($user->getImages());
