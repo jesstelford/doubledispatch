@@ -94,3 +94,5 @@ class ImageLoader implements Visitor
 $product = new Product();
 $imgLoader = new ImageLoader();
 $product->accept($imgLoader);
+
+var_dump($product->getImages());
