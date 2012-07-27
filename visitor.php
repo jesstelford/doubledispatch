@@ -191,6 +191,16 @@ class LocationLoader implements Visitor
         throw new Exception("Visitor method " . $thisClass . "::visit" . $elementClass . "(" . $elementClass . ") is not implemented!");
     }
 
+    private function convertIpIntoAddress($ip)
+    {
+        return '654 blaville road, eskimo town';
+    }
+
+    private function getLatitudeAndLongitudeByAddress($address)
+    {
+        return array('lat' => 123.98, 'lon' => -234.93);
+    }
+
 }
 
 $product = new Product();
