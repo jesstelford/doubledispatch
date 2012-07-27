@@ -37,6 +37,8 @@ class Product extends Element
 {
     private $images = array();
 
+    private $address = '123 fake street, nowhere town, someplace';
+
     public function setImages($images)
     {
         $this->images = $images;
@@ -51,11 +53,18 @@ class Product extends Element
     {
         return 1; // Magic number FTW!
     }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
 }
 
 class User extends Element
 {
     private $images = array();
+
+    private $ip = '127.0.0.1'; // There's no place like 127.0.0.1
 
     public function setImages($images)
     {
@@ -70,6 +79,11 @@ class User extends Element
     public function getId()
     {
         return 1;
+    }
+
+    public function getIp()
+    {
+        return $this->ip;
     }
 }
 
