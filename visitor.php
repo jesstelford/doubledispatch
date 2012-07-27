@@ -64,6 +64,14 @@ class ImageLoader implements Visitor
         throw new Exception("Visitor method " . $thisClass . "::visit" . $elementClass . "(" . $elementClass . ") is not implemented!");
     }
 
+    private function loadImagesForId($id)
+    {
+        // Some sort of generic load functionality based on an id
+        // Could just as easily be an SQL clause, or a path name, etc
+        // The idea is that the algorithm for loading images should be
+        // the same no matter what it is being loaded for (more on this
+        // later)
+    }
 }
 
 $product = new Product();
