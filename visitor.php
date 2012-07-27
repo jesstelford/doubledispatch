@@ -53,6 +53,26 @@ class Product extends Element
     }
 }
 
+class User extends Element
+{
+    private $images = array();
+
+    public function setImages($images)
+    {
+        $this->images = $images;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function getId()
+    {
+        return 1;
+    }
+}
+
 class ImageLoader implements Visitor
 {
 
