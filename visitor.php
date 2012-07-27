@@ -170,6 +170,29 @@ class ImageLoader implements Visitor
     }
 }
 
+class LocationLoader implements Visitor
+{
+
+    public function visitProduct(Product $product)
+    {
+        echo "Visiting function LocationLoader::visitProduct(Product)\n";
+    }
+
+    public function visitUser(User $user)
+    {
+        echo "Visiting function LocationLoader::visitUser(User)\n";
+    }
+
+    public function defaultVisit(Element $element)
+    {
+        // error out due to no visitor method being implemented
+        $elementClass = get_class($element);
+        $thisClass = get_class($this);
+        throw new Exception("Visitor method " . $thisClass . "::visit" . $elementClass . "(" . $elementClass . ") is not implemented!");
+    }
+
+}
+
 $product = new Product();
 $imgLoader = new ImageLoader();
 $product->accept($imgLoader);
