@@ -39,6 +39,8 @@ class Product extends Element
 
     private $address = '123 fake street, nowhere town, someplace';
 
+    private $mapUrl = '';
+
     public function setImages($images)
     {
         $this->images = $images;
@@ -58,6 +60,16 @@ class Product extends Element
     {
         return $this->address;
     }
+
+    public function setMapUrl($url)
+    {
+        $this->mapUrl = $url;
+    }
+
+    public function getMapUrl()
+    {
+        return $this->mapUrl;
+    }
 }
 
 class User extends Element
@@ -65,6 +77,9 @@ class User extends Element
     private $images = array();
 
     private $ip = '127.0.0.1'; // There's no place like 127.0.0.1
+
+    private $latitude = 0;
+    private $longitude = 0;
 
     public function setImages($images)
     {
@@ -84,6 +99,26 @@ class User extends Element
     public function getIp()
     {
         return $this->ip;
+    }
+
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 }
 
