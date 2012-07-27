@@ -176,11 +176,27 @@ class LocationLoader implements Visitor
     public function visitProduct(Product $product)
     {
         echo "Visiting function LocationLoader::visitProduct(Product)\n";
+
+        $address = $product->getAddress();
+        $location = $this->getLatitudeAndLongitudeByAddress($address);
+        $product->setMapUrl(
+            'http://maps.google.com/maps?q='
+            . $location['lat'] . ','
+            . $location['lon']
+            . '+(The Product)'
+        );
     }
 
     public function visitUser(User $user)
     {
         echo "Visiting function LocationLoader::visitUser(User)\n";
+
+        $ip = $user->getIp();
+        $address = $this->convertIpIntoAddress($ip);
+        $location = $this->getLatitudeAndLongitudeByAddress($address);
+
+        $user->setLatitude($location['lat']);
+        $user->setLongitude($location['lon']);
     }
 
     public function defaultVisit(Element $element)
