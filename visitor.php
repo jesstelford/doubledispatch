@@ -86,6 +86,16 @@ class ImageLoader implements Visitor
         $product->setImages($images);
     }
 
+    public function visitUser(User $user)
+    {
+        echo "Visiting function ImageLoader::visitUser(User)\n";
+
+        $userId = $user->getId();
+        $images = $this->loadImagesForId($userId);
+
+        $user->setImages($images);
+    }
+
     public function defaultVisit(Element $element)
     {
         // error out due to no visitor method being implemented
