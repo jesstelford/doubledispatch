@@ -35,7 +35,7 @@ interface Visitor
 
 class Product extends Element
 {
-    private $images = array();    
+    private $images = array();
 
     public function setImages($images)
     {
@@ -46,6 +46,11 @@ class Product extends Element
     {
         return $this->images;
     }
+
+    public function getId()
+    {
+        return 1; // Magic number FTW!
+    }
 }
 
 class ImageLoader implements Visitor
@@ -54,6 +59,11 @@ class ImageLoader implements Visitor
     public function visitProduct(Product $product)
     {
         echo "Visiting function ImageLoader::visitProduct(Product)\n";
+
+        $productId = $product->getId();
+        $images = $this->loadImagesForId($productId);
+
+        $product->setImages($images);
     }
 
     public function defaultVisit(Element $element)
