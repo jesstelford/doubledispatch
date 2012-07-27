@@ -221,11 +221,18 @@ class LocationLoader implements Visitor
 
 $product = new Product();
 $imgLoader = new ImageLoader();
+$locLoader = new LocationLoader();
+
 $product->accept($imgLoader);
+$product->accept($locLoader);
 
 var_dump($product->getImages());
+var_dump($product->getMapUrl());
 
 $user = new User();
 $user->accept($imgLoader);
+$user->accept($locLoader);
 
 var_dump($user->getImages());
+var_dump($user->getLatitude());
+var_dump($user->getLongitude());
