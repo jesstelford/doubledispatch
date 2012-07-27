@@ -71,6 +71,13 @@ class ImageLoader implements Visitor
         // The idea is that the algorithm for loading images should be
         // the same no matter what it is being loaded for (more on this
         // later)
+
+        // Return dummy data for this example
+        return array(
+            '/my/img/harbourbridge.png',
+            '/my/img/water.jpg',
+            '/my/img/phone.tiff'
+        );
     }
 }
 
